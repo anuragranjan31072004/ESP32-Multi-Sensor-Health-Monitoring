@@ -1,74 +1,157 @@
-# Multi-Sensor Portable Health Monitoring System using ESP32
+# 🩺 ESP32 Multi-Sensor Portable Health Monitoring System
 
-## Overview
-This project presents a real-time biomedical health monitoring system using an ESP32 microcontroller. The system integrates multiple physiological sensors to continuously measure ECG, heart rate, oxygen saturation (SpO2), and body temperature with local signal processing and display.
-
-The design focuses on compactness, low power consumption, and reliable vital-sign acquisition without relying on external networks.
-
----
-
-## Sensors Used
-- **AD8232 ECG Module**
-  - Low-noise analog front-end for ECG acquisition
-  - Enables visualization of PQRST waveform features
-- **MAX30102**
-  - Optical sensor for heart rate and SpO2 measurement
-  - Uses photoplethysmography (PPG)
-- **DS18B20**
-  - Digital temperature sensor using 1-Wire protocol
-  - High accuracy and noise immunity
+## 📌 Overview
+This project presents a **real-time portable health monitoring system** using the **ESP32 microcontroller**.  
+The system simultaneously acquires and processes multiple biomedical parameters including **ECG, heart rate, SpO₂, and body temperature**, making it suitable for educational, prototype, and non-clinical biomedical applications.
 
 ---
 
-## System Architecture
-- ESP32 microcontroller
-- Local signal acquisition and processing
-- Serial plotter / local display output
-- No cloud or IoT dependency
-
-All physiological signals are processed locally on the ESP32.
-
----
-
-## Signal Processing Workflow
-
-### ECG Processing
-- Analog signal acquisition from AD8232
-- Filtering and amplification
-- R-peak detection
-- ECG waveform visualization
-
-### Heart Rate & SpO2
-- I²C communication with MAX30102
-- AC/DC component extraction
-- Ratio-of-ratios computation
-- Heart rate estimation from PPG peaks
-
-### Temperature Measurement
-- Digital temperature acquisition via DS18B20
-- Direct ESP32 interface using 1-Wire protocol
+## 🎯 Objectives
+- Design a multi-sensor biomedical data acquisition system  
+- Capture and visualize real-time ECG signals  
+- Measure heart rate, SpO₂, and body temperature  
+- Validate signal quality and sensor reliability  
+- Analyze results using waveform plots and serial data  
 
 ---
 
-## Results
-- Clear ECG waveform with identifiable P, QRS, and T components
-- Stable heart rate and SpO2 values within physiological range
-- Accurate body temperature readings
-- Reliable real-time performance with low delay
+## 🧠 System Architecture
+
+### Sensors Used
+| Parameter | Sensor |
+|---------|--------|
+| ECG | AD8232 |
+| Heart Rate & SpO₂ | MAX30102 |
+| Temperature | DS18B20 |
+| Controller | ESP32 |
+
+### Functional Flow
+1. Sensor signal acquisition  
+2. Analog-to-digital conversion (ADC)  
+3. Signal conditioning and filtering  
+4. Real-time visualization  
+5. Serial data monitoring  
 
 ---
 
-## Applications
-- Personal health monitoring
-- Biomedical embedded systems
-- Continuous vital-sign assessment
-- Medical support and academic research
+## 🛠️ Hardware Setup
+- ESP32 Development Board  
+- AD8232 ECG module with electrodes  
+- MAX30102 pulse oximeter sensor  
+- DS18B20 digital temperature sensor  
+- Breadboard, jumper wires, USB power  
+
+Hardware connection diagrams and physical setup images are available in the **images** folder.
 
 ---
 
-## Future Enhancements
-- Machine-learning-based arrhythmia detection
-- Advanced filtering techniques
-- Alarm system for abnormal vitals
-- Wearable enclosure design
-- Battery-powered continuous operation
+## 💻 Software Implementation
+- **Platform:** Arduino IDE  
+- **Programming Language:** C / C++  
+- **Communication:** Serial interface  
+- **Processing:** Handled directly on ESP32  
+
+The source code and modular structure are available inside the **src** directory.
+
+---
+
+## 📁 Repository Structure
+ESP32-Multi-Sensor-Health-Monitoring
+
+
+
+├── docs/ → Project report and reference papers
+
+
+├── images/ → System diagrams, waveforms, plots
+
+
+├── results/ → Experimental observations and outcomes
+
+
+├── src/ → Source code
+
+
+├── README.md → Main project documentation
+
+
+└── Reference_paper.pdf
+
+
+---
+
+## 🖼️ Visual Results & Outputs
+All figures used in analysis are stored in the **images** folder.
+
+### Included Images
+- System block diagram  
+- Hardware circuit diagram  
+- Hardware setup  
+- ECG waveform captured using AD8232  
+- Wide-view ECG signal  
+- Multi-channel real-time data stream  
+- Temperature, SpO₂, and PPG plot  
+- Serial monitor output  
+
+Each image is described in `images/README.md`.
+
+---
+
+## 📊 Experimental Results
+- Clear ECG waveform with identifiable peaks  
+- Stable heart rate and SpO₂ readings  
+- Accurate digital temperature measurement  
+- Reliable multi-channel data handling  
+- Minimal noise and distortion under normal conditions  
+
+Detailed interpretation is provided in the project report.
+
+---
+
+## 📄 Documentation
+
+### 📘 Project Report
+**File:** `docs/Project_Report_BML.pdf`  
+Contains complete academic documentation including methodology, design, testing, and result analysis.
+
+### 📚 Reference Paper
+**File:** `docs/Reference_paper.pdf`  
+Provides theoretical background and literature support for biomedical signal acquisition.
+
+---
+
+## 📌 Applications
+- Educational biomedical projects  
+- Prototype health monitoring systems  
+- Wearable device research  
+- IoT-based healthcare solutions  
+- Academic demonstrations  
+
+---
+
+## 🚀 Future Scope
+- Cloud-based IoT dashboards  
+- Mobile application integration  
+- Data logging and analytics  
+- AI-based health anomaly detection  
+- Compact wearable enclosure design  
+
+---
+
+## 🔧 Tools & Technologies
+- ESP32  
+- Arduino IDE  
+- Biomedical sensors  
+- Embedded C/C++  
+- Serial communication  
+- Signal processing  
+
+---
+
+## 📜 License
+This project is intended for **educational and non-commercial use only**.
+
+---
+
+## 🙌 Acknowledgements
+This project was developed as part of an academic biomedical engineering initiative and inspired by real-world healthcare monitoring challenges.
